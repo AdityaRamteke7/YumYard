@@ -1,0 +1,61 @@
+.navbar {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #0A0F22;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-rigth {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar-rigth .searchicon {
+    width: 25px;
+}
+
+.navbar-rigth .bag {
+    width: 25px;
+}
+
+.navbar button {
+    background-color: transparent;
+    font-size: 16px;
+    color: #0A0F22;
+    border: 2px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar button:hover {
+    background-color: burlywood;
+}
+
+.navbar .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid black;
+}
+
+.navbar li {
+    cursor: pointer;
+}
+
+.navbar h2 {
+    color: #0A0F22;
+    font-weight: bolder;
+    font-size: 5vh;
+}
