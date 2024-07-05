@@ -1,5 +1,11 @@
+import "./PlaceOrder.css";
 const PlaceOrder = () => {
-  return <div>PlaceOrder</div>;
+  return (
+    <form className="place-order">
+      <div></div>
+      <div></div>
+    </form>
+  );
 };
 
 export default PlaceOrder;

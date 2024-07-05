@@ -1,44 +1,55 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
-export default function NavBar() {
+import { StoreContext } from "../../context/StoreContext";
+export default function NavBar({ setLogin }) {
   const [menu, setMenu] = useState("home");
+  const { getTotalAmount } = useContext(StoreContext);
   return (
     <div className="navbar">
-     <h2>YumYard</h2>
+      <Link to="/">
+        <h2>YumYard</h2>
+      </Link>
       <ul className="navbar-menu">
-        <li
+        <Link
+          to="/"
           onClick={() => setMenu("home")}
           className={menu === "home" ? "active" : ""}
         >
           Home
-        </li>
-        <li
+        </Link>
+        <a
+          href="#explore-menu"
           onClick={() => setMenu("menu")}
           className={menu === "menu" ? "active" : ""}
         >
           Menu
-        </li>
-        <li
+        </a>
+        <a
+          href="#footer"
           onClick={() => setMenu("about")}
           className={menu === "about" ? "active" : ""}
         >
           About
-        </li>
-        <li
+        </a>
+        <a
+          href="#footer"
           onClick={() => setMenu("contact")}
           className={menu === "contact" ? "active" : ""}
         >
           Contact us
-        </li>
+        </a>
       </ul>
       <div className="navbar-rigth">
         <img className="searchicon" src={assets.search_icon} alt="icon" />
         <div className="navbar-search-icon">
-          <img className="bag" src={assets.bag_icon} alt="bag" />
-          <div className="dot"></div>
+          <Link to="/cart">
+            <img className="bag" src={assets.bag_icon} alt="bag" />
+            <div className={getTotalAmount() === 0 ? "" : "dot"}></div>
+          </Link>
         </div>
-        <button>Sign in</button>
+        <button onClick={() => setLogin(true)}>Sign in</button>
       </div>
     </div>
   );
