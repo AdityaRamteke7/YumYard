@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+}
+
+.navbar h2 {
+    color: #0A0F22;
+    font-weight: bolder;
+    font-size: 5vh;
+}
+
+.navbar .profile {
+    width: 40px
+}

@@ -1,5 +1,4 @@
 import "./Header.css";
-
 const Header = () => {
   return (
     <div className="header">
@@ -13,7 +12,9 @@ const Header = () => {
           gastronomic adventures that will tantalize your taste buds and ignite
           your culinary creativity.
         </p>
-        <button>View menu</button>
+        <a href="#explore-menu">
+          <button>View menu</button>
+        </a>
       </div>
     </div>
   );
