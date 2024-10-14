@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="side-options">
+      <div className="sidebar-options">
         <NavLink to="/add" className="sidebar-option">
           <img src={assets.add_icon} alt="" />
           <p>Add Item</p>

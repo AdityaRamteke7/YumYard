@@ -21,7 +21,7 @@ app.use("/image", express.static('uploads'))
 
 
 app.get("/", (res, req) => {
-    res.send("API is working")
+    req.send("API is working")
 })
 
 

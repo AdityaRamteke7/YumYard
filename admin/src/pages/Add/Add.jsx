@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { assets } from "../../assets/assets";
+import axios from "axios";
 import "./Add.css";
+import { toast } from "react-toastify";
+
 const Add = () => {
+  const url = "http://localhost:5002";
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -9,18 +13,40 @@ const Add = () => {
     price: "",
     category: "Salad",
   });
+
   const onChangeHandle = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
   };
 
-  useEffect(() => {
-    console.log(data)
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
+
+  const onSumbitHandle = async (event) => {
+    event.preventDefault();
+    const fromData = new FormData();
+    fromData.append("name", data.name);
+    fromData.append("description", data.description);
+    fromData.append("price", Number(data.price));
+    fromData.append("category", data.category);
+    fromData.append("image", image);
+
+    const respones = await axios.post(`${url}/api/food/add`, fromData);
+
+    if (respones.data.success) {
+      setData({ name: "", description: "", price: "", category: "Salad" });
+      setImage(false);
+      toast.success(respones.data.message);
+    } else {
+      toast.error(respones.data.message);
+    }
+  };
+
   return (
     <div className="add">
-      <form className="flex-col">
+      <form className="flex-col" onSubmit={onSumbitHandle}>
         <div className="add-image-upload flex-col">
           <p>Upload Image</p>
           <label htmlFor="image">
@@ -37,7 +63,7 @@ const Add = () => {
             required
           />
         </div>
-        <div className="add-image-upload flex-col">
+        <div className="add-product-name flex-col">
           <p>Product Name </p>
           <input
             onChange={onChangeHandle}

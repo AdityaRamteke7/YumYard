@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-    await mongoose.connect("mongodb+srv://YumYard:gTE46eryWp4bvOs9@cluster0.younxjh.mongodb.net/yum-yard").then(()=>console.log("Database is connneted"))
-}
- 
+  await mongoose
+    .connect(
+      "mongodb+srv://adityazeus1:MVGqFFZTZJrieZGG@yumyardcluster.uaz7z.mongodb.net/?retryWrites=true&w=majority&appName=YumYardCluster"
+    )
+    .then(() => console.log("Database is connneted"));
+};
