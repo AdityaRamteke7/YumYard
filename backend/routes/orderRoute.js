@@ -1,0 +1,9 @@
+import express from "express";
+import authMiddleware from "../middlerware/auth.js";
+import { placeOrder } from "../controllers/OrderController.js";
+
+const orderRouter = express.Router();
+
+orderRouter.post("/place", authMiddleware, placeOrder);
+
+export default orderRouter;
